@@ -3,6 +3,12 @@ Blackfire Vagrant
 
 Based on https://github.com/r-baker/simple-magento-vagrant, but with Blackfire added and configured
 
+TODO:
+
+Document this
+Make sure to tell people where to put their credentials
+Make sure to tell people how to install the Chrome client
+
 A VERY simple Magento environment provisioner for [Vagrant](http://www.vagrantup.com/).
 
 ![Magento & Vagrant](https://cookieflow.files.wordpress.com/2013/07/magento_vagrant.jpg?w=525&h=225)
