@@ -146,5 +146,7 @@ apt-get -y install git
 cd /var/www/html/
 modman init
 modman clone https://github.com/magento-hackathon/Blackfireio
+magerun dev:profiler 1
+magerun dev:symlinks 1
 magerun cache:flush
 magerun sys:setup:run

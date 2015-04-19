@@ -3,6 +3,8 @@ Blackfire + Magento Vagrant
 
 Based on https://github.com/r-baker/simple-magento-vagrant, but with the Blackfire profiler added and configured for you.
 
+Includes https://github.com/magento-hackathon/Blackfireio
+
 See the 'Prerequisites' section for important steps to launch Blackfire
 
 A VERY simple Magento environment provisioner for [Vagrant](http://www.vagrantup.com/), with the Blackfire profiler included.
@@ -39,6 +41,7 @@ Vagrant will configure the base system before downloading Magento and running th
 
 * In your browser, head to `127.0.0.1:8080`
 * In the Chrome toolbar, click the Blackfire icon, choose an empty profile slot and click 'Profile' to profile the current page.
+* To enable the Blackfire Hackathon extension to provide more refined results, login to the admin panel and set Advanced -> Developer -> Debug -> Profiler to 'Yes' on the global scope.
 * Magento admin panel is accessed at `127.0.0.1:8080/admin`
 * User: `admin` Password: `password123123`
 * Access the virtual machine directly using `vagrant ssh`
