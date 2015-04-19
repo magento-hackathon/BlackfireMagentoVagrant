@@ -116,6 +116,8 @@ cd /vagrant/httpdocs
 wget https://raw.github.com/netz98/n98-magerun/master/n98-magerun.phar
 chmod +x ./n98-magerun.phar
 sudo mv ./n98-magerun.phar /usr/local/bin/
+ln -s /usr/local/bin/n98-magerun.phar /usr/local/bin/magerun
+chmod a+x /usr/local/bin/magerun
 
 wget -O - https://packagecloud.io/gpg.key | apt-key add -
 echo "deb http://packages.blackfire.io/debian any main" | sudo tee /etc/apt/sources.list.d/blackfire.list
@@ -129,5 +131,20 @@ echo 'server-token=INSERT-SERVER-TOKEN-HERE' >> /etc/blackfire/agent
 echo 'client-id=INSERT-CLIENT-ID-HERE' >> /root/.blackfire.ini
 echo 'client-token=INSERT-CLIENT-TOKEN-HERE' >> /root/.blackfire.ini
 
+bash < <(wget -q --no-check-certificate -O - https://raw.github.com/colinmollenhour/modman/master/modman-installer)
+mv /root/bin/modman /usr/local/bin/modman
+
+echo 'xdebug.remote_autostart=0' >> /etc/php5/apache2/php.ini
+echo 'xdebug.remote_enable=0' >> /etc/php5/apache2/php.ini
+echo 'xdebug.profiler_enable=0' >> /etc/php5/apache2/php.ini
+
 /etc/init.d/blackfire-agent restart
 /etc/init.d/apache2 restart
+
+apt-get -y install git
+
+cd /var/www/html/
+modman init
+modman clone https://github.com/magento-hackathon/Blackfireio
+magerun cache:flush
+magerun sys:setup:run
