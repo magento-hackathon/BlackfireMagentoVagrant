@@ -1,15 +1,11 @@
-Blackfire Vagrant
+Blackfire + Magento Vagrant
 ======================
 
-Based on https://github.com/r-baker/simple-magento-vagrant, but with Blackfire added and configured
+Based on https://github.com/r-baker/simple-magento-vagrant, but with the Blackfire profiler added and configured for you.
 
-TODO:
+See the 'Prerequisites' section for important steps to launch Blackfire
 
-Document this
-Make sure to tell people where to put their credentials
-Make sure to tell people how to install the Chrome client
-
-A VERY simple Magento environment provisioner for [Vagrant](http://www.vagrantup.com/).
+A VERY simple Magento environment provisioner for [Vagrant](http://www.vagrantup.com/), with the Blackfire profiler included.
 
 ![Magento & Vagrant](https://cookieflow.files.wordpress.com/2013/07/magento_vagrant.jpg?w=525&h=225)
 
@@ -28,7 +24,11 @@ A VERY simple Magento environment provisioner for [Vagrant](http://www.vagrantup
 
 * Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * Install [Vagrant](http://www.vagrantup.com/)
-* Clone or [download](https://github.com/r-baker/simple-magento-vagrant/archive/master.zip) this repository to the root of your project directory `git clone https://github.com/r-baker/simple-magento-vagrant.git`
+* Clone or [download](https://github.com/joshuaswarren/BlackfireMagentoVagrant/archive/master.zip) this repository to the root of your project directory `git clone https://github.com/joshuaswarren/BlackfireMagentoVagrant.git`
+* Setup a free [Blackfire account](https://blackfire.io/)
+* Obtain your Server Id, Server Token, Client Id and Client Token from your [Blackfire Account](https://blackfire.io/account/credentials)
+* Edit bootstrap.sh and replace the placeholder text near the bottom of the file with your Blackfire Credentials.
+* Install the Blackfire Companion in Google Chrome from the [Chrome Web Store](https://chrome.google.com/webstore/detail/blackfire-companion/miefikpgahefdbcgoiicnmpbeeomffld?hl=en)
 * In your project directory, run `vagrant up`
 
 The first time you run this, Vagrant will download the bare Ubuntu box image. This can take a little while as the image is a few-hundred Mb. This is only performed once.
@@ -38,7 +38,8 @@ Vagrant will configure the base system before downloading Magento and running th
 ## Usage
 
 * In your browser, head to `127.0.0.1:8080`
-* Magento CMS is accessed at `127.0.0.1:8080/admin`
+* In the Chrome toolbar, click the Blackfire icon, choose an empty profile slot and click 'Profile' to profile the current page.
+* Magento admin panel is accessed at `127.0.0.1:8080/admin`
 * User: `admin` Password: `password123123`
 * Access the virtual machine directly using `vagrant ssh`
 * When you're done `vagrant halt`
