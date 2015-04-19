@@ -1,0 +1,4 @@
+.idea/
+.vagrant/
+magento-sample-data-*
+httpdocs
